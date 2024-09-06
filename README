@@ -1,0 +1,75 @@
+https://api.frankfurter.app/latest?from=USD&to=EUR
+GET /fx/{targetCurrency}: Returns 3 latest fx rates in form of time series from
+USD to target currency with a step of 1 day
+Expected Response -------------
+{
+    "source": "USD",
+    "rates": {
+        "2024-09-05": {
+            "target": "EUR",
+            "value": "0.90114"
+        },
+        "2024-09-06": {
+            "target": "EUR",
+            "value": "0.90114"
+        },
+        "2024-09-04": {
+            "target": "EUR",
+            "value": "0.90498"
+        }
+    }
+}
+
+{
+"amount": 1,
+"base": "USD",
+"date": "2024-09-05",
+"rates": {
+"EUR": 0.90114
+}
+}
+
+YYYY-MM-DD
+
+
+I will specify  a date > 1/09/2024
+1/09/2024
+31/08/2024
+30/08/2024
+if I don't specify a date
+The endpoint should use the latest as a marker
+
+
+
+fx/{targetcurrency}
+fx/EUR?<date>
+fx/EUR?date='<date>'
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dealbreakers
+Was able to complete the API -> Yes but with bugs
+Was able to write executable code -> yes But with bugs
+Was able to cover corner cases(In case, invalid String ex :: /GBP?date=XXX) --> No
+Was able to parse the incoming target values to the endpoint correctly (Different format dats provided, Multiple dates are provided) --> No
+
+To Consider :: The preparation of final response was the problem.
+API was hit correctly for multiple days.
+
+
+Secondary ---- good to have -- not dealbreakers
+Used java 17 or above _> no as in no features used
+Used httpclient/ SPring web instead of Resttemplate -> no
+Was able to write some junit test -No
+USed Lamok or other technologies to reduce boiler code  -> no
+Reactive nature of the program || What happens if specify something other than USD as source
